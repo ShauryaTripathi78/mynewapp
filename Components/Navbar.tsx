@@ -12,7 +12,10 @@ function Navbar() {
                         <li><Link href="/about" className="text-white hover:text-gray-300">About</Link></li>
                         <li><Link href="/contact" className="text-white hover:text-gray-300">Contact</Link></li>
                         <li><Link href="/appointment" className="text-white hover:text-gray-300">appointment</Link></li>
-                        <li><Link href="/medicineStore" className="text-white hover:text-gray-300">Medicine Store</Link></li>
+                        <li><Link href="/medicineStore" className="text-white hover:text-gray-300">Medicine Store</Link>
+                        </li>
+                        <li><Link href="/signup" className="text-white hover:text-gray-300">Sign up</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>
