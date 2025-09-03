@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function SignupPage() {
+  console.log("6Lc5ybsrAAAAAFEpidfSMaKyR_Rx8gd4Lf9imykg", process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -134,22 +135,29 @@ export default function SignupPage() {
         {/* Google reCAPTCHA */}
         <div className="mb-4">
           
-           <ReCAPTCHA
-  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
-  onChange={(value) => onCaptchaChange(value)}
+          <ReCAPTCHA
+  sitekey="6Lc5ybsrAAAAAGkcAoeunKqgiIiG7lQv5xP5pcam"
+  onChange={onCaptchaChange}
 />
+
+
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
   
 
           
         </div>
-
         <button
           type="submit"
-          className="bg-blue-500 text-white w-full p-2 rounded hover:bg-blue-600"
+          disabled={!email || !password || !captchaValue}
+          className={`w-full p-2 rounded text-white ${
+            !email || !password || !captchaValue
+              ? "bg-blue-300 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+          }`}
         >
           Signup
         </button>
+
         <button
           type="button"
           onClick={handleGoogleLogin}
